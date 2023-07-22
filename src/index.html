@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./dist/output.css">
 </head>
 
-<body>
+<body class="bg-slate-500">
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -45,7 +45,23 @@
             <label for="password">Password :</label>
             <input type="text" name="password" value="password">
         </form> -->
+    <!-- start 1 textbox -->
+    <div class="grid justify-center">
 
+        <button onclick="mouseKey()" id="mouseKey"
+            class="text-center rounded-3xl bg-teal-800 text-white text-3xl captalize px-5 py-3 m-3 mx-auto max-w-lg flex">show
+            mouse click
+        </button>
+        <div id="showMouseKey"
+            class="text-center rounded-3xl bg-orange-800 text-white text-3xl captalize px-5 py-3 m-3 mx-auto max-w-lg">
+            mouse click
+        </div>
+        <input type="search" id="keyCode" onkeydown="keyCode(event);this.select()"
+            class="m-3 mx-autoblock w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Search Key Code" required>
+    </div>
+    <hr class="m-3">
+    <!-- start 2 clock  -->
     <button onclick="startClock()"
         class="text-center rounded-3xl bg-teal-800 text-white text-3xl captalize px-5 py-3 m-3 mx-auto max-w-lg flex">Start
         Clock</button>
@@ -56,7 +72,82 @@
         class="text-center rounded-3xl bg-orange-800 text-white text-3xl captalize px-5 py-3 m-3 mx-auto max-w-lg">
         Start Clock
     </div>
-    <form action="home.html"></form>
+    <!-- end 2 clock  -->
+    <hr class="m-3">
+    <!-- start 3 imgs  -->
+    <button onclick="startGame()"
+        class="text-center rounded-3xl bg-teal-800 text-white text-3xl captalize px-5 py-3 m-3 mx-auto max-w-lg flex">start
+        game of count images 3 seconds
+    </button>
+    <div class="flex justify-center gap-4 rounded-3xl" id="handleImage">
+        <img src="http://www.picsum.photos/400/400" alt="1" class="rounded-3xl">
+        <img src="http://www.picsum.photos/400/400" alt="2" class="rounded-3xl">
+        <img src="http://www.picsum.photos/400/400" alt="3" class="rounded-3xl">
+    </div>
+    <div class="grid justify-center">
+        <div id="handleImageCounter"
+            class="text-center rounded-3xl bg-orange-800 text-white text-3xl captalize px-5 py-3 m-3 mx-auto max-w-lg">
+            counter => 0
+        </div>
+    </div>
+    <!-- end 3 imgs  -->
+    <hr class="m-3">
+    <!-- start 4 cards -->
+    <div class="max-w-lg mx-auto">
+
+        <div
+            class="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+            <div class="grid justify-center">
+                <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="http://www.picsum.photos/200/200">
+            </div>
+            <form class="space-y-6" action="./html/home.html" id="formSubmit">
+                <h5 class="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h5>
+                <div>
+                    <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                        username</label>
+                    <input type="text" name="username" id="usernameGet"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-blue-500"
+                        placeholder="enter your username" required
+                        onkeyup="if (/[^|a-z0-9]+/g.test(this.value)) this.value = this.value.replace(/[^|a-z0-9]+/g,'')">
+                </div>
+                <div>
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                        password</label>
+                    <input type="password" name="password" id="password" placeholder="••••••••"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-blue-500"
+                        required>
+                </div>
+                <div class="flex items-start">
+                    <div class="flex items-start">
+                        <div class="flex items-center h-5">
+                            <input id="remember" type="checkbox" value=""
+                                class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+                                required>
+                        </div>
+                        <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                            <a href="./html/scroll.html">
+                                I agree to Terms and conditions
+                            </a>
+                        </label>
+                    </div>
+                    <a href="#" class="ml-auto text-sm text-blue-700 hover:underline dark:text-blue-500">Lost
+                        Password?</a>
+                </div>
+                <button type="submit"
+                    class="w-24 h-24 mb-3 rounded-full shadow-lg text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium text-sm px-5 py-2.5 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+                    onsubmit="submitUsername()">button</button>
+                <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                    Not registered? <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">Create
+                        account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- end 4 cards -->
+
+    <hr class="m-3">
+
     <script src="main.js" async defer></script>
 </body>
 
