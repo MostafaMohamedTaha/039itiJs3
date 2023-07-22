@@ -165,24 +165,20 @@
         <a href="../index.html">accept terms and close</a>
     </button>
     <script>
-        let scrollContinue=setInterval(function () {
+        let scrollContinue = setInterval(function () {
             window.scrollBy({
-                top: 5000,
+                top: 1000,
                 left: 0,
                 behavior: "smooth",
             });
         }, 500);
 
-        scrollable=document.scrollingElement.scrollHeight-window.innerHeight
-        scrolled=window.scrollY
-if(scrollable==Math.ceil(scrolled)){
-    alert('hi')
-}else{
-    scrollContinue
-}
-        // scrollable==Math.ceil(scrolled)
-        // ?window.addEventListener("scrollend",()=>window.close()):
-
+        window.addEventListener("scroll", (e) => {
+            if (window.scrollY === document.scrollingElement.scrollHeight - window.innerHeight) {
+                window.location.href = '../index.html'
+            }
+            scrollContinue
+        })        
     </script>
 </body>
 
