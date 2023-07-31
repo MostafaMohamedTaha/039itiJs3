@@ -96,7 +96,7 @@
 // ((((((((((((((((((((((((((start 1 text box))))))))))))))))))))))))))
 let keyCode = (e) => {
     e.preventDefault()
-    let key = e.keyCode>=65 && e.keyCode <=90 ? e.keyCode : "please enter string";
+    let key = e.keyCode >= 65 && e.keyCode <= 90 ? e.keyCode : "please enter string";
     alert(`the code of the key you entered is ${key}`)
 }
 let mouseKey = () => {
@@ -195,11 +195,48 @@ let startGame = () => {
 
 // (((((((((((((((((((((((((start form username)))))))))))))))))))))))))
 let submitUsername = () => {
-    usernameInputValue = document.getElementById("usernameGet").value
-    localStorage.setItem("inputValue", usernameInputValue);
-    console.log(usernameInputValue)
+    formDataInput = document.getElementById("formSubmit")
+    formDataInput.addEventListener("submit", e=> {
+        e.preventDefault()
+        fullnameValidInput = document.getElementById("usernameGet").value
+        localStorage.setItem("fullnameValidInput", fullnameValidInput)
+        location.href = "./html/home.html"
+    })
+    
 }
-document.getElementById("usernameWelcome").innerHTML=` welcome ${localStorage.getItem("inputValue")}`
+var fullnameValidInputGet=localStorage.getItem("fullnameValidInput")
+document.getElementById("usernameWelcome").innerHTML = `Welcome ${fullnameValidInputGet} !`
+
+// let submitUsername=()=>{
+//     let formSubmitClick=document.getElementById("formSubmit")
+//     formSubmitClick.addEventListener("submit", function (event) {
+//         event.preventDefault(); // Prevent form submission
+    
+//         var username = document.getElementById("usernameGet").value; // Get the username
+    
+//         // Store the username in local storage
+//         localStorage.setItem("username", username);
+    
+//         // Redirect to the welcome page
+//         location.href = "./html/home.html";
+//     });
+// }
+// var username = localStorage.getItem("username");
+// console.log(username)
+
+// document.getElementById("usernameWelcome").textContent = "Welcome, " + username + "!";
+// document.getElementById("registrationForm").addEventListener("submit", function (event) {
+//     event.preventDefault(); // Prevent form submission
+
+//     var username = document.getElementById("username").value; // Get the username
+
+//     // Store the username in local storage
+//     localStorage.setItem("username", username);
+
+//     // Redirect to the welcome page
+//     location.href = "welcome.html";
+// });
+// document.getElementById("usernameWelcome").innerHTML = ` welcome ${localStorage.getItem("inputValue")}`
 // (((((((((((((((((((((((((end form username)))))))))))))))))))))))))
 // (((((((((((((((((((((((((start scroll down)))))))))))))))))))))))))
 // document.getElementById("scrollPage").addEventListener("load", () => {
@@ -213,4 +250,16 @@ document.getElementById("usernameWelcome").innerHTML=` welcome ${localStorage.ge
 //     }, 1000);
 // })
 // (((((((((((((((((((((((((end scroll down)))))))))))))))))))))))))
-//
+// (((((((((((((((((((((((((start 5 link open)))))))))))))))))))))))))
+function openNewWindow() {
+    setTimeout(() => {
+        openNewWindowVariable = window.open("http://www.facebook.com", "_blank", "width=400,height=400")
+    }, 3000)
+
+}
+function closeNewWindow() {
+    clearTimeout(() => {
+        openNewWindowVariable.close()
+    }, 0)
+}
+// (((((((((((((((((((((((((end 5 link open)))))))))))))))))))))))))
